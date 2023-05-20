@@ -10,4 +10,7 @@ for (let i=1;i<=16;i++) {
         arrayGrid[i][j].classList.add('singleGrid');
     }
 }
-
+const allGrid = document.querySelectorAll('.singleGrid');
+allGrid.forEach(singleGrid => {
+    singleGrid.addEventListener('mouseover',() => singleGrid.classList.add('pen'));
+})
