@@ -5,8 +5,12 @@ let column = 16;
 let row = 16;
 const buttonChangeGrid = document.querySelector('.changeGrid');
 const buttonClear = document.querySelector('.clear');
+const buttonPenBlack = document.querySelector('.penBlack');
+const buttonPenRainbow = document.querySelector('.penRainbow');
 buttonChangeGrid.addEventListener('click',changeGrid);
 buttonClear.addEventListener('click',clear);
+buttonPenBlack.addEventListener('click',penBlack);
+buttonPenRainbow.addEventListener('click',penRainbow);
 
 function spacePen() {
     for (let i=1;i<=column;i++) {
@@ -19,10 +23,7 @@ function spacePen() {
             arrayGrid[i][j].classList.add('singleGrid');
         }
     }
-    allGrid = document.querySelectorAll('.singleGrid');
-    allGrid.forEach(singleGrid => {
-        singleGrid.addEventListener('mouseover',() => singleGrid.classList.add('pen'));
-    })
+    penBlack();
 }
 
 function changeGrid() {
@@ -46,3 +47,22 @@ function clear() {
     spacePen();
 }
 spacePen();
+
+function penBlack() {
+    allGrid = document.querySelectorAll('.singleGrid');
+    allGrid.forEach(singleGrid => {
+        singleGrid.addEventListener('mouseover',() => singleGrid.style.cssText = `background: black`);
+    })
+}
+
+function penRainbow() {
+    allGrid = document.querySelectorAll('.singleGrid');
+    allGrid.forEach(singleGrid => {
+        singleGrid.addEventListener('mouseover',() => {
+            let x = Math.floor(Math.random() * 256);
+            let y = Math.floor(Math.random() * 256);
+            let z = Math.floor(Math.random() * 256);
+            singleGrid.style.cssText = `background: rgb(${x},${y},${z})`;
+        });
+    })
+}
