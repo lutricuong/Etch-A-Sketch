@@ -1,9 +1,10 @@
 .container {
     display: flex;
     flex-direction: column;
-    align-items: center;
     height: 320px;
     width: 320px;
+    margin: auto;
+    
 }
 .columnGrid {
     display: flex;
@@ -16,4 +17,13 @@
 }
 .pen {
     background-color: red;
+}
+.allButton {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    margin: 10px;
+}
+.clear {
+    background-color: white;
 }
